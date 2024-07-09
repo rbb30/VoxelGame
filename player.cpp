@@ -3,14 +3,14 @@
 
 #define CAMERA_PITCH_LIMIT (PI / 2.5f)
 #define CAMERA_MOVE_SPEED_MIN   8.0f
-#define CAMERA_MOVE_SPEED_MAX   64.0f
+#define CAMERA_MOVE_SPEED_MAX   32.0f
 #define CAMERA_ACCELERATION     16.0f
 
 
 Player::Player() {
-    _camera = { 0 };
+    _camera = { 5, 5, 5 };
 	_camera.up = Vector3 { 0.0f, 1.0f, 0.0f };;
-	_camera.fovy = 70.0f;
+	_camera.fovy = 90.0f;
 	_camera.projection = CAMERA_PERSPECTIVE;
     _cameraMoveSpeed = CAMERA_MOVE_SPEED_MIN;
 };

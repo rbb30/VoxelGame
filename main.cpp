@@ -3,7 +3,6 @@
 #include "player.cpp"
 
 Texture2D textureGrid = { 0 };
-// Camera cameraPlayer = { 0 };
 
 // Scene drawing
 void DrawScene(void)
@@ -11,7 +10,7 @@ void DrawScene(void)
     int count = 5;
     float spacing = 4;
 
-    // Grid of cube trees on a plane to make a "world"
+    // Grid of cube trees on a plane
     DrawPlane((Vector3){ 0, 0, 0 }, (Vector2){ 50, 50 }, BEIGE); // Simple world plane
 
     for (float x = -count*spacing; x <= count*spacing; x += spacing)
@@ -28,12 +27,10 @@ void DrawScene(void)
 
 
 //------------------------------------------------------------------------------------
-// Program main entry point
+// Entry point
 //------------------------------------------------------------------------------------
 int main(void)
 {
-    // Initialization
-    //--------------------------------------------------------------------------------------
     const int screenWidth = 900;
     const int screenHeight = 550;
 
@@ -47,13 +44,6 @@ int main(void)
     SetTextureWrap(textureGrid, TEXTURE_WRAP_CLAMP);
 
     Player player = Player();
-    // // Setup player camera and screen
-    // cameraPlayer.fovy = 45.0f;
-    // cameraPlayer.up.y = 1.0f;
-    // cameraPlayer.target.y = 1.0f;
-    // cameraPlayer.position.z = -3.0f;
-    // cameraPlayer.position.y = 1.0f;
-    // cameraPlayer.projection = CAMERA_PERSPECTIVE;             // Camera mode type
 
     SetCameraMode(player.GetCamera(), CAMERA_FIRST_PERSON);
 
@@ -64,7 +54,6 @@ int main(void)
 
     SetTargetFPS(144);               // Set our game to run at 60 frames-per-second
     //--------------------------------------------------------------------------------------
-
     // Main game loop
     while (!WindowShouldClose())
     {
@@ -74,14 +63,6 @@ int main(void)
 
         //----------------------------------------------------------------------------------
         float offsetThisFrame = 10.0f * GetFrameTime();
-
-        // if (IsKeyDown(KEY_SPACE))
-        // {
-        //     cameraPlayer.position.y += 2.0f * offsetThisFrame;
-            // cameraPlayer.up.y = 2.0f;
-            // cameraPlayer.target.y = 2.0f;
-        // }
-
         //----------------------------------------------------------------------------------
 
         // Draw
